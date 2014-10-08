@@ -3,6 +3,8 @@ package com.poc.dal.api;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import com.poc.dal.api.model.ProductDBO;
@@ -11,7 +13,8 @@ import com.poc.dal.api.model.ProductDBO;
  * Repository to for {@link com.poc.dal.api.model.ProductDBO}
  */
 @Repository
-public interface ProductRepository extends JpaRepository<ProductDBO, Long> {
+public interface ProductRepository extends JpaRepository<ProductDBO, Long>, JpaSpecificationExecutor,
+                PagingAndSortingRepository<ProductDBO, Long> {
 
     ProductDBO findByName(String name);
 

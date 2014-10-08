@@ -7,15 +7,13 @@ import javax.persistence.*;
  */
 @Entity(name = "product")
 @Table(name = "product", uniqueConstraints = @UniqueConstraint(columnNames = { "product_id" }))
-public class ProductDBO {
+public class ProductDBO extends AbstractBaseEntity {
     private static final long serialVersionUID = 1L;
 
-
-    private long id;
+    private Long id;
     private String name;
     private String description;
     private boolean active;
-
 
     /**
      * Gets name.
@@ -59,7 +57,7 @@ public class ProductDBO {
      *
      * @param id New value of id.
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,13 +70,12 @@ public class ProductDBO {
     @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
     @org.hibernate.annotations.GenericGenerator(name = "product_seq", strategy = "org.hibernate.id.enhanced.TableGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "segment_value", value = "product_seq"),
-                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "50"),
-                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1"),
-                    @org.hibernate.annotations.Parameter(name = "optimizer", value = "none") })
-
-    public long getId() {
+                    parameters = {
+                                  @org.hibernate.annotations.Parameter(name = "segment_value", value = "product_seq"),
+                                  @org.hibernate.annotations.Parameter(name = "initial_value", value = "50"),
+                                  @org.hibernate.annotations.Parameter(name = "increment_size", value = "1"),
+                                  @org.hibernate.annotations.Parameter(name = "optimizer", value = "none") })
+    public Long getId() {
         return id;
     }
 
