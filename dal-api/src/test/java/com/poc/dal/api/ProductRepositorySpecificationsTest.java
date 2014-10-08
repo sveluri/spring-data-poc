@@ -1,6 +1,7 @@
 package com.poc.dal.api;
 
-import com.poc.dal.api.spec.ProductSpecifications;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.poc.dal.api.spec.ProductSpecifications;
 
 /**
  * Test for {@link com.poc.dal.api.ProductRepository} using Specifications
@@ -17,7 +18,6 @@ import java.util.List;
 @ContextConfiguration(locations = "classpath:test-database-beans.xml")
 @Transactional
 public class ProductRepositorySpecificationsTest {
-
 
     @Autowired
     private ProductRepository productRepository;

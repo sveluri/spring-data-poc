@@ -1,11 +1,9 @@
 package com.poc.dal.api;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
-import com.mysema.query.types.Expression;
-import com.mysema.query.types.Order;
-import com.mysema.query.types.OrderSpecifier;
-import com.poc.dal.api.spec.ProductSpecifications;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mysema.query.jpa.impl.JPAQuery;
 import com.poc.dal.api.model.ProductDBO;
 import com.poc.dal.api.model.QProductDBO;
-
-import java.util.List;
+import com.poc.dal.api.spec.ProductSpecifications;
 
 /**
  * Test for {@link com.poc.dal.api.ProductRepository} using QueryDsl
@@ -116,6 +113,6 @@ public class ProductRepositoryQueryDslTest {
         Page<ProductDBO> all = productRepository.findAll(ProductSpecifications.isActive(true), pageSpecification);
 
         System.out.println(all.getContent());
-        System.out.println("Total elements --> "+all.getTotalElements());
+        System.out.println("Total elements --> " + all.getTotalElements());
     }
 }

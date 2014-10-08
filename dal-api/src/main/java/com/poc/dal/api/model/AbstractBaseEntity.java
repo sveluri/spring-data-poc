@@ -21,7 +21,8 @@ public abstract class AbstractBaseEntity implements BaseEntity {
                 return -1;
             else
                 return 0; // both ids are null
-        } else if (other.getId() == null)
+        }
+        else if (other.getId() == null)
             return 1;
         else
             return getId().compareTo(other.getId());

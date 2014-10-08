@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 public interface BaseEntity extends Serializable, Comparable<BaseEntity> {
 
-
     Long getId();
 
     void setId(Long id);

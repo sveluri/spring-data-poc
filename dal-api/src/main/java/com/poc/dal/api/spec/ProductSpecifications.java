@@ -1,14 +1,13 @@
 package com.poc.dal.api.spec;
 
-import com.poc.dal.api.model.ProductDBO;
-import org.hibernate.jpa.criteria.predicate.CompoundPredicate;
-import org.springframework.data.jpa.domain.Specification;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.Map;
+
+import org.springframework.data.jpa.domain.Specification;
+
+import com.poc.dal.api.model.ProductDBO;
 
 /**
  * Specifications used in queries
