@@ -7,6 +7,9 @@
     <persistence-unit name="gal" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.poc.dal.api.model.ProductDBO</class>
+        <class>com.poc.dal.api.model.CategoryDBO</class>
+        <class>com.poc.dal.api.model.ProductLocaleId</class>
+        <class>com.poc.dal.api.model.ProductLocaleDBO</class>
         <properties>
             <property name="hibernate.id.new_generator_mappings" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

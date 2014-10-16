@@ -1,6 +1,8 @@
 package com.poc.dal.api.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DBO for Product
@@ -14,6 +16,8 @@ public class ProductDBO extends AbstractBaseEntity {
     private String name;
     private String description;
     private boolean active;
+    private CategoryDBO categoryDBO;
+    private List<ProductLocaleDBO> productLocaleDBOList = new ArrayList<ProductLocaleDBO>();
 
     /**
      * Gets name.
@@ -106,6 +110,7 @@ public class ProductDBO extends AbstractBaseEntity {
         sb.append(", name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", active=").append(active);
+        sb.append(", categoryDBO=").append(categoryDBO);
         sb.append('}');
         return sb.toString();
     }
@@ -126,5 +131,49 @@ public class ProductDBO extends AbstractBaseEntity {
      */
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    /**
+     * Sets new categoryDBO.
+     *
+     * @param categoryDBO New value of categoryDBO.
+     */
+    public void setCategoryDBO(CategoryDBO categoryDBO) {
+        this.categoryDBO = categoryDBO;
+    }
+
+    /**
+     * Gets categoryDBO.
+     *
+     * @return Value of categoryDBO.
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false, insertable = false, updatable = false)
+    public CategoryDBO getCategoryDBO() {
+        return categoryDBO;
+    }
+
+    /**
+     * Sets new productLocaleDBOList.
+     *
+     * @param productLocaleDBOList New value of productLocaleDBOList.
+     */
+    public void setProductLocaleDBOList(List<ProductLocaleDBO> productLocaleDBOList) {
+        this.productLocaleDBOList = productLocaleDBOList;
+    }
+
+    /**
+     * Gets productLocaleDBOList.
+     *
+     * @return Value of productLocaleDBOList.
+     */
+    @OneToMany(mappedBy = "id.productDBO", fetch = FetchType.LAZY)
+    public List<ProductLocaleDBO> getProductLocaleDBOList() {
+        return productLocaleDBOList;
+    }
+
+
+    public void addProductLocale(ProductLocaleDBO productLocaleDBO) {
+        productLocaleDBOList.add(productLocaleDBO);
     }
 }

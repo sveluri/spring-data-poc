@@ -33,7 +33,7 @@
     <!-- JPA configuration -->
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
           p:database="H2"
-          p:showSql="false"
+          p:showSql="true"
           p:generateDdl="false"
           p:databasePlatform="org.hibernate.dialect.HSQLDialect"/>
 
