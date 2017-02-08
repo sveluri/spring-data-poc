@@ -15,3 +15,8 @@ Servers/
 *.iml
 .idea/
 
+
+.classpath
+.git
+.settings
+.class
